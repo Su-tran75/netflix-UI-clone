@@ -31,11 +31,12 @@ router.post("/login", async (req, res) => {
     const originalPassword = CryptoJS.enc.Utf8.stringify(decrypted);
     // console.log("decrypted", decrypted);
     // console.log("originalPassword", originalPassword);
+    const { password, ...info } = user._doc;
 
     originalPassword !== req.body.password &&
       res.status(401).json("Wrong password or username !");
 
-    res.status(200).json(user);
+    res.status(200).json(info);
   } catch (err) {
     res.status(500).json(err);
   }
