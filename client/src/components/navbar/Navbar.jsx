@@ -40,7 +40,7 @@ const Navbar = () => {
           <NotificationsIcon className="icon" />
           <img
             src="https://images.pexels.com/photos/4300115/pexels-photo-4300115.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-            alt="profile picture"
+            alt="profile"
           />
           <div className="profile">
             <ArrowDropDownIcon className="icon" />

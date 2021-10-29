@@ -1,8 +1,30 @@
 import "./featured.scss";
-import PlayArrowIcon from '@material-ui/icons/PlayArrow';
-import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
+import PlayArrowIcon from "@material-ui/icons/PlayArrow";
+import InfoOutlinedIcon from "@material-ui/icons/InfoOutlined";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
-const Featured = ({type}) => {
+const Featured = ({ type }) => {
+  const [content, setContent] = useState({});
+  console.log(content);
+
+  useEffect(() => {
+    const getRandomContent = async () => {
+      try {
+        const res = await axios.get(`/movies/random?type=${type}`, {
+          headers: {
+            token:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNzc2ZTdkMmM3OTgxYmMzZDgxZWIyYSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYzNTQ5NTcxNCwiZXhwIjoxNjM1OTI3NzE0fQ.5yy7mD5zPFcKH-xMSyHPUmEi5I5bFJ-zA2J3eT8KTuQ",
+          },
+        });
+        setContent(res.data[0]);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    getRandomContent();
+  }, [type]);
+
   return (
     <div className="featured">
       {type && (
@@ -26,17 +48,10 @@ const Featured = ({type}) => {
           </select>
         </div>
       )}
-      <img
-        src="https://images.pexels.com/photos/4300115/pexels-photo-4300115.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-        alt="featured"
-      />
+      <img src={content.title} alt="featured" />
       <div className="info">
-        <img src="https://occ-0-92-1722.1.nflxso.net/dnm/api/v6/LmEnxtiAuzezXBjYXPuDgfZ4zZQ/AAAABRKrgH8goki6B50_fsipiwG8-efCu0w57iY4KsMiMOkV_xpwmCR1bwdO-qexN7jGsMEEVHu_udqNGVab2eGM-RxjYidvNBjuWkAE.png?r=df1" alt="" />
-        <span className="desc">
-          Nesciunt quos enim dolore dolorum consequatur magni. Earum delectus
-          laboriosam officia. Sint quos perferendis ipsa quis illo officiis
-          asperiores dolor.
-        </span>
+        <img src={content.imgTitle} alt="" />
+        <span className="desc">{content.desc}</span>
         <div className="buttons">
           <button className="play">
             <PlayArrowIcon />
