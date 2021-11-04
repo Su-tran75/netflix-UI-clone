@@ -1,6 +1,12 @@
 import React from "react";
 import "./topbar.scss";
-import { NotificationsNone, Language, Settings } from "@material-ui/icons";
+import {
+  NotificationsNone,
+  Language,
+  Settings,
+  BackspaceOutlined,
+} from "@material-ui/icons";
+import { signOut } from "../../context/authContext/apiCalls";
 
 export default function Topbar() {
   return (
@@ -26,6 +32,7 @@ export default function Topbar() {
             alt="avatar"
             className="topAvatar"
           />
+          <BackspaceOutlined className="signOut" />
         </div>
       </div>
     </div>
