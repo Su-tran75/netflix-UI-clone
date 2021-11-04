@@ -2,7 +2,7 @@ import React, { useEffect, useState, useMemo } from "react";
 import "./home.scss";
 import FeaturedInfo from "../../components/featuredInfo/FeaturedInfo";
 import Chart from "../../components/chart/Chart";
-import { userData } from "../../DummyData";
+// import { userData } from "../../DummyData";
 import WidgetSm from "../../components/widgetSm/WidgetSm";
 import WidgetLg from "../../components/widgetLg/WidgetLg";
 import axios from "axios";
@@ -51,7 +51,7 @@ export default function Home() {
     };
     getStats();
   }, [MONTHS]);
-  console.log(userStats);
+
   return (
     <div className="home">
       <FeaturedInfo />

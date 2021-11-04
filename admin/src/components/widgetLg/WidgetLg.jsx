@@ -21,7 +21,7 @@ export default function WidgetLg() {
             <img
               className="widgetLgImg"
               src="https://images.pexels.com/photos/2587316/pexels-photo-2587316.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-              alt="profile picture"
+              alt="profile"
             />
             <span className="widgetLgName">Leo Messi</span>
           </td>
@@ -36,7 +36,7 @@ export default function WidgetLg() {
             <img
               className="widgetLgImg"
               src="https://images.pexels.com/photos/2587316/pexels-photo-2587316.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-              alt="profile picture"
+              alt="profile"
             />
             <span className="widgetLgName">Leo Messi</span>
           </td>
@@ -51,7 +51,7 @@ export default function WidgetLg() {
             <img
               className="widgetLgImg"
               src="https://images.pexels.com/photos/2587316/pexels-photo-2587316.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-              alt="profile picture"
+              alt="profile"
             />
             <span className="widgetLgName">Leo Messi</span>
           </td>
@@ -66,7 +66,7 @@ export default function WidgetLg() {
             <img
               className="widgetLgImg"
               src="https://images.pexels.com/photos/2587316/pexels-photo-2587316.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-              alt="profile picture"
+              alt="profile"
             />
             <span className="widgetLgName">Leo Messi</span>
           </td>

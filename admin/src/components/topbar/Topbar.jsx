@@ -23,7 +23,7 @@ export default function Topbar() {
           </div>
           <img
             src="https://images.pexels.com/photos/364308/pexels-photo-364308.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"
-            alt="avatar image"
+            alt="avatar"
             className="topAvatar"
           />
         </div>
