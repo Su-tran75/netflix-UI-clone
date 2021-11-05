@@ -13,5 +13,5 @@ export const login = async (user, dispatch) => {
 
 export const signOut = async (dispatch) => {
   dispatch(logout());
-  localStorage.removeItem("user");
+  // localStorage.removeItem("user");
 };
