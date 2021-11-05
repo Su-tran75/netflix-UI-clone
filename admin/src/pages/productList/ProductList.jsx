@@ -4,7 +4,10 @@ import { DataGrid } from "@material-ui/data-grid";
 import { DeleteOutline } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 import { MovieContext } from "../../context/movieContext/MovieContext";
-import { getMovies } from "../../context/movieContext/movieApiCalls";
+import {
+  getMovies,
+  deleteMovie,
+} from "../../context/movieContext/movieApiCalls";
 
 export default function ProductList() {
   const { movies, dispatch } = useContext(MovieContext);
@@ -14,8 +17,9 @@ export default function ProductList() {
   }, [dispatch]);
 
   const handleDelete = (id) => {
-    // setData(data.filter((item) => item.id !== id));
+    deleteMovie(id, dispatch);
   };
+
 
   const columns = [
     { field: "_id", headerName: "ID", width: 120 },
@@ -52,7 +56,7 @@ export default function ProductList() {
             </Link>
             <DeleteOutline
               className="productListDelete"
-              onClick={() => handleDelete(params.row.id)}
+              onClick={() => handleDelete(params.row._id)}
             />
           </>
         );
