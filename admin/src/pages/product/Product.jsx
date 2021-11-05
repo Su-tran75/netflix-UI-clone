@@ -1,48 +1,42 @@
 import React from "react";
 import "./product.scss";
-import { Link } from "react-router-dom";
-import Chart from "../../components/chart/Chart";
-import { productData } from "../../DummyData";
+import { Link, useLocation } from "react-router-dom";
 import { Publish } from "@material-ui/icons";
 
 export default function Product() {
+  const location = useLocation();
+  const movie = location.movie;
+  console.log(movie);
   return (
     <div className="product">
       <div className="productTitleContainer">
-        <h1 className="productTitle">Product</h1>
+        <h1 className="productTitle">Movie</h1>
         <Link to="/newProduct">
           <button className="productAddButton">Create</button>
         </Link>
       </div>
       <div className="productTop">
-        <div className="productTopLeft">
-          <Chart data={productData} dataKey="Sales" title="Sales Performance" />
-        </div>
         <div className="productTopRight">
           <div className="productInfoTop">
-            <img
-              src="https://images.pexels.com/photos/3825517/pexels-photo-3825517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-              alt="product"
-              className="productInfoImg"
-            />
-            <span className="productName">Apple Airpods</span>
+            <img src={movie.img} alt="product" className="productInfoImg" />
+            <span className="productName">{movie.title}</span>
           </div>
           <div className="productInfoBottom">
             <div className="productInfoItem">
               <span className="productInfoKey">id:</span>
-              <span className="productInfoValue">123</span>
+              <span className="productInfoValue">{movie._id}</span>
             </div>
             <div className="productInfoItem">
-              <span className="productInfoKey">sales:</span>
-              <span className="productInfoValue">6723</span>
+              <span className="productInfoKey">genre:</span>
+              <span className="productInfoValue">{movie.genre}</span>
             </div>
             <div className="productInfoItem">
-              <span className="productInfoKey">active:</span>
-              <span className="productInfoValue">yes</span>
+              <span className="productInfoKey">year:</span>
+              <span className="productInfoValue">{movie.year}</span>
             </div>
             <div className="productInfoItem">
-              <span className="productInfoKey">In Stock:</span>
-              <span className="productInfoValue">no</span>
+              <span className="productInfoKey">limit:</span>
+              <span className="productInfoValue">{movie.limit}</span>
             </div>
           </div>
         </div>
@@ -50,22 +44,24 @@ export default function Product() {
       <div className="productBottom">
         <form className="productForm">
           <div className="productFormLeft">
-            <label>Product Name</label>
-            <input type="text" placeholder="Apple Airpods" />
-            <label>In Stock</label>
-            <select name="inStock" id="idStock">
-              <option value="yes">Yes</option>
-              <option value="no">No</option>
-            </select>
-            <select name="active" id="active">
-              <option value="yes">Yes</option>
-              <option value="no">No</option>
-            </select>
+            <label>Movie Title</label>
+            <input type="text" placeholder={movie.title} />
+            <label>Year</label>
+            <input type="text" placeholder={movie.year} />
+            <label>Genre</label>
+            <input type="text" placeholder={movie.genre} />
+            <label>Limit</label>
+            <input type="text" placeholder={movie.limit} />
+            <label>Trailer</label>
+            <input type="file" placeholder={movie.trailer} />
+            <label>Video</label>
+            <input type="file" placeholder={movie.video} />
+            
           </div>
           <div className="productFormRight">
             <div className="productUpload">
               <img
-                src="https://images.pexels.com/photos/3825517/pexels-photo-3825517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                src={movie.img}
                 alt="product"
                 className="productUploadImg"
               />
