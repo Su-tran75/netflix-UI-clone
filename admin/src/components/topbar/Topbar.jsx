@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./topbar.scss";
 import {
   NotificationsNone,
@@ -7,8 +7,19 @@ import {
   BackspaceOutlined,
 } from "@material-ui/icons";
 import { signOut } from "../../context/authContext/apiCalls";
+import { AuthContext } from "../../context/authContext/AuthContext";
+import { useHistory } from "react-router-dom";
 
 export default function Topbar() {
+  const { dispatch } = useContext(AuthContext);
+  const history = useHistory();
+
+  const handleLogout = (e) => {
+    e.preventDefault();
+    signOut(dispatch);
+    history.push("/login");
+  };
+
   return (
     <div className="topbar">
       <div className="topbarWrapper">
@@ -32,7 +43,7 @@ export default function Topbar() {
             alt="avatar"
             className="topAvatar"
           />
-          <BackspaceOutlined className="signOut" />
+          <BackspaceOutlined className="signOut" onClick={handleLogout} />
         </div>
       </div>
     </div>
