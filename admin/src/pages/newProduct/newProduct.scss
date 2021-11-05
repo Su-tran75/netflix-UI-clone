@@ -2,31 +2,31 @@
   flex: 4;
 
   .addProductTitle {
-
   }
 
   .addProductForm {
     margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
 
     .addProductItem {
       width: 250px;
       display: flex;
       flex-direction: column;
       margin-bottom: 10px;
+      padding: 20px;
 
-      &>label {
+      & > label {
         color: gray;
         font-weight: 600;
         margin-bottom: 10px;
-
       }
 
-      &>input {
+      & > input {
         padding: 10px;
-
       }
 
-      &>select {
+      & > select {
         padding: 10px;
       }
     }
@@ -36,11 +36,12 @@
       padding: 7px 10px;
       border: none;
       border-radius: 10px;
-      background-color:darkblue;
+      background-color: darkblue;
       color: white;
       font-weight: 600;
       cursor: pointer;
-
+      height: 30px;
+      align-self: center;
     }
   }
 }
