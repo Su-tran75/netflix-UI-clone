@@ -20,7 +20,7 @@ export default function NewProduct() {
   const upload = (items) => {
     items.forEach((item) => {
       const fileName = new Date().getTime() + item.label + item.file.name;
-      const uploadTask = storage.ref(`/items/${fileName}`).put(item);
+      const uploadTask = storage.ref(`/items/${fileName}`).put(item.file);
       uploadTask.on(
         "STATE_CHANGED",
         (snapshot) => {
