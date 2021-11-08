@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "./newProduct.scss";
 import { ListItemSecondaryAction } from "@material-ui/core";
 import storage from "../../firebase";
+import { createMovie } from "../../context/movieContext/movieApiCalls";
+import { MovieContext } from "../../context/movieContext/MovieContext";
 
 export default function NewProduct() {
   const [movie, setMovie] = useState(null);
@@ -11,6 +13,8 @@ export default function NewProduct() {
   const [trailer, setTrailer] = useState(null);
   const [video, setVideo] = useState(null);
   const [uploaded, setUploaded] = useState(0);
+
+  const { dispatch } = useContext(MovieContext);
 
   const handleChange = (e) => {
     const value = e.target.value;
@@ -58,7 +62,8 @@ export default function NewProduct() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-  }
+    createMovie(movie, dispatch);
+  };
 
   return (
     <div className="newProduct">
@@ -169,7 +174,9 @@ export default function NewProduct() {
           />
         </div>
         {uploaded === 5 ? (
-          <button className="addProductButton" onClick={handleSubmit}>Create</button>
+          <button className="addProductButton" onClick={handleSubmit}>
+            Create
+          </button>
         ) : (
           <button className="addProductButton" onClick={handleUpload}>
             Upload
