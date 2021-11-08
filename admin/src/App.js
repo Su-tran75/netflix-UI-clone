@@ -17,6 +17,7 @@ import NewProduct from "./pages/newProduct/NewProduct";
 import Login from "./pages/login/Login";
 import { useContext } from "react";
 import { AuthContext } from "./context/authContext/AuthContext";
+import ListList from "./pages/listList/ListList";
 
 console.log(process.env.API_KEY);
 
@@ -53,6 +54,15 @@ function App() {
               <Route path="/newProduct">
                 <NewProduct />
               </Route>
+              <Route path="/lists">
+                <ListList />
+              </Route>
+              {/* <Route path="/list/:listId">
+                <List />
+              </Route>
+              <Route path="/newList">
+                <NewList />
+              </Route> */}
             </div>
           </>
         )}
