@@ -18,6 +18,8 @@ import Login from "./pages/login/Login";
 import { useContext } from "react";
 import { AuthContext } from "./context/authContext/AuthContext";
 
+console.log(process.env.API_KEY);
+
 function App() {
   const { user } = useContext(AuthContext);
 
