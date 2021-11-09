@@ -4,7 +4,7 @@ import { DataGrid } from "@material-ui/data-grid";
 import { DeleteOutline } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 import { ListContext } from "../../context/listContext/ListContext";
-import { getLists } from "../../context/listContext/listApiCalls";
+import { getLists, deleteList } from "../../context/listContext/listApiCalls";
 
 export default function ListList() {
   const { lists, dispatch } = useContext(ListContext);
@@ -13,9 +13,9 @@ export default function ListList() {
     getLists(dispatch);
   }, [dispatch]);
 
-  // const handleDelete = (id) => {
-  //   deleteMovie(id, dispatch);
-  // };
+  const handleDelete = (id) => {
+    deleteList(id, dispatch);
+  };
 
   const columns = [
     { field: "_id", headerName: "ID", width: 250 },
@@ -36,7 +36,7 @@ export default function ListList() {
             </Link>
             <DeleteOutline
               className="productListDelete"
-              // onClick={() => handleDelete(params.row._id)}
+              onClick={() => handleDelete(params.row._id)}
             />
           </>
         );
@@ -50,7 +50,7 @@ export default function ListList() {
         rows={lists}
         disableSelectionOnClick
         columns={columns}
-        pageSize={8}
+        pageSize={10}
         checkboxSelection
         getRowId={(r) => r._id}
       />
