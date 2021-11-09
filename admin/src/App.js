@@ -18,6 +18,7 @@ import Login from "./pages/login/Login";
 import { useContext } from "react";
 import { AuthContext } from "./context/authContext/AuthContext";
 import ListList from "./pages/listList/ListList";
+import List from "./pages/list/List";
 
 console.log(process.env.API_KEY);
 
@@ -57,10 +58,10 @@ function App() {
               <Route path="/lists">
                 <ListList />
               </Route>
-              {/* <Route path="/list/:listId">
+              <Route path="/list/:listId">
                 <List />
               </Route>
-              <Route path="/newList">
+              {/* <Route path="/newList">
                 <NewList />
               </Route> */}
             </div>
