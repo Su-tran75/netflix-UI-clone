@@ -1,5 +1,5 @@
 import axios from "axios";
-import { loginStart, loginFailure, loginSuccess, logout } from "./AuthActions";
+import { loginStart, loginFailure, loginSuccess } from "./AuthActions";
 
 export const login = async (user, dispatch) => {
   dispatch(loginStart());
@@ -11,7 +11,7 @@ export const login = async (user, dispatch) => {
   }
 };
 
-export const signOut = async (dispatch) => {
-  dispatch(logout());
-  // localStorage.removeItem("user");
-};
+// export const logout = async (dispatch) => {
+//   dispatch(logout());
+//   // localStorage.removeItem("user");
+// };
