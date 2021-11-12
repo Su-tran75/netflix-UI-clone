@@ -2,6 +2,7 @@ import "./register.scss";
 import { useState, useRef } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Register = () => {
   const [email, setEmail] = useState("");
@@ -15,10 +16,6 @@ const Register = () => {
   const handleStart = () => {
     setEmail(emailRef.current.value);
   };
-
-  console.log("email: ", email);
-  console.log("username: ", username);
-  console.log("password: ", password);
 
   const handleFinish = async (e) => {
     e.preventDefault();
@@ -41,7 +38,11 @@ const Register = () => {
             src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg"
             alt=""
           />
-          <button className="loginButton">Sign In</button>
+          <Link to="/login">
+            <button className="loginButton">
+              <span>Sign In</span>
+            </button>
+          </Link>
         </div>
       </div>
       <div className="container">
