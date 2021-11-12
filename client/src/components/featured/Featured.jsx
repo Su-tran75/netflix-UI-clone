@@ -1,12 +1,10 @@
 import "./featured.scss";
-import PlayArrowIcon from "@material-ui/icons/PlayArrow";
-import InfoOutlinedIcon from "@material-ui/icons/InfoOutlined";
+import { InfoOutlined, PlayArrow } from "@material-ui/icons";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
 const Featured = ({ type, setGenre }) => {
   const [content, setContent] = useState({});
-  console.log(content);
 
   useEffect(() => {
     const getRandomContent = async () => {
@@ -14,7 +12,7 @@ const Featured = ({ type, setGenre }) => {
         const res = await axios.get(`/movies/random?type=${type}`, {
           headers: {
             token:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNzc2ZTdkMmM3OTgxYmMzZDgxZWIyYSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYzNTQ5NTcxNCwiZXhwIjoxNjM1OTI3NzE0fQ.5yy7mD5zPFcKH-xMSyHPUmEi5I5bFJ-zA2J3eT8KTuQ",
+              "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
           },
         });
         setContent(res.data[0]);
@@ -52,17 +50,17 @@ const Featured = ({ type, setGenre }) => {
           </select>
         </div>
       )}
-      <img src={content.title} alt="featured" />
+      <img src={content.img} alt="featured" />
       <div className="info">
         <img src={content.imgTitle} alt="" />
         <span className="desc">{content.desc}</span>
         <div className="buttons">
           <button className="play">
-            <PlayArrowIcon />
+            <PlayArrow />
             <span>Play</span>
           </button>
           <button className="more">
-            <InfoOutlinedIcon />
+            <InfoOutlined />
             <span>Info</span>
           </button>
         </div>
